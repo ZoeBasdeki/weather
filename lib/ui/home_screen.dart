@@ -170,14 +170,16 @@ class _HomeScreenState extends State<HomeScreen> {
                   repository: widget.repository,
                   location: widget.location,
                   onSearch: _openSearch,
+                  active: _page == 0,
                 ),
-                for (final place in _saved)
+                for (final (i, place) in _saved.indexed)
                   ForecastPage(
                     key: ValueKey(place.id),
                     place: place,
                     repository: widget.repository,
                     location: widget.location,
                     onSearch: _openSearch,
+                    active: _page == i + 1,
                   ),
               ],
             ),

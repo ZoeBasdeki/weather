@@ -18,6 +18,7 @@ class ForecastPage extends StatefulWidget {
     required this.repository,
     required this.location,
     required this.onSearch,
+    required this.active,
   });
 
   /// The place to show, or null for the device location.
@@ -25,6 +26,9 @@ class ForecastPage extends StatefulWidget {
   final WeatherRepository repository;
   final LocationService location;
   final VoidCallback onSearch;
+
+  /// Whether this is the page currently shown. Its snackbar is closed when it isn't.
+  final bool active;
 
   @override
   State<ForecastPage> createState() => _ForecastPageState();
@@ -36,6 +40,9 @@ class _ForecastPageState extends State<ForecastPage> with AutomaticKeepAliveClie
   LocationException? _locationError;
   bool _loading = false;
 
+  /// The location snackbar this page is showing, so it can be closed on leaving the page.
+  ScaffoldFeatureController<SnackBar, SnackBarClosedReason>? _snack;
+
   @override
   bool get wantKeepAlive => true;
 
@@ -43,6 +50,18 @@ class _ForecastPageState extends State<ForecastPage> with AutomaticKeepAliveClie
   void initState() {
     super.initState();
     _start();
+  }
+
+  @override
+  void didUpdateWidget(ForecastPage oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (!widget.active) _closeSnack();
+  }
+
+  void _closeSnack() {
+    final snack = _snack;
+    _snack = null;
+    snack?.close();
   }
 
   /// Show cached data immediately, then refresh in the background.
@@ -104,11 +123,18 @@ class _ForecastPageState extends State<ForecastPage> with AutomaticKeepAliveClie
       };
 
   void _showLocationSnack(LocationException e) {
+    if (!widget.active) return;
+    _closeSnack();
     final settings = _settingsAction(e.reason);
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+    final snack = ScaffoldMessenger.of(context).showSnackBar(SnackBar(
       content: Text(e.message),
       action: settings == null ? null : SnackBarAction(label: 'Settings', onPressed: settings),
     ));
+    _snack = snack;
+    // Forget it once it's gone, so close() never hides some other snackbar.
+    snack.closed.then((_) {
+      if (_snack == snack) _snack = null;
+    });
   }
 
   @override

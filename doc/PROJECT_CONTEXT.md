@@ -18,8 +18,8 @@ Weather Z, a personal weather app for Android, written in Flutter/Dart.
 - **Location:** device GPS via `geolocator`, plus city search via the Open-Meteo geocoding API.
 - **Weather codes:** map WMO `weather_code` to icons and text descriptions.
 - **Offline:** cache the last response locally and show cached data when offline.
-- **Attribution:** "Weather data by Open-Meteo.com" (CC BY 4.0). It goes on an About page,
-  which hasn't been built yet. This is the top must-do in TODO.md.
+- **Attribution:** "Weather data by Open-Meteo.com" (CC BY 4.0), linked under every forecast
+  and on the About page (ⓘ in the app bar).
 - **Architecture:** keep it simple, with models, a service layer and the UI. Use null-safe
   parsing.
 - **Packages:** use current stable versions from pub.dev.
@@ -33,7 +33,8 @@ Weather Z, a personal weather app for Android, written in Flutter/Dart.
 - `flutter analyze` reports no issues, and `flutter test` passes 6 of 6.
 - The debug APK builds.
 
-**Not yet verified:** running the app on a real device.
+- About page with attribution, privacy summary, version and licences (2026-11-04).
+- Used daily on the real phone for about 5 days before 2026-11-04 without problems.
 
 ## Environment
 
@@ -47,8 +48,8 @@ Weather Z, a personal weather app for Android, written in Flutter/Dart.
 | Emulator | `emulator-5554`, Android 16 (API 36) |
 | Platforms | Android only (`flutter create --platforms=android`) |
 | App name | `Weather Z` (`android:label` in `AndroidManifest.xml` + `MaterialApp.title` in `main.dart`). The Dart package stays `weather`. |
-| Application ID | `com.example.weather` (placeholder; must match the Firebase Android app before Firebase is added) |
-| Git | not initialised yet |
+| Application ID | `com.weatherz.app` (final; "Z" is for Zoe). Kotlin `namespace` is still `com.example.weather`, which is fine (it is not visible to users). |
+| Git | public repo https://github.com/ZoeBasdeki/weather (branch `main`) |
 
 ## Packages
 
@@ -60,6 +61,8 @@ These were the latest versions on pub.dev as of 2026-10-28.
 | `geolocator` | ^14.1.2 |
 | `shared_preferences` | ^2.5.6 |
 | `intl` | ^0.20.3 |
+| `url_launcher` | ^6.3.3 |
+| `package_info_plus` | ^10.2.2 |
 | `flutter_lints` (dev) | ^6.0.0 |
 | `flutter_launcher_icons` (dev) | ^0.14.4 |
 
@@ -85,7 +88,8 @@ dart run flutter_launcher_icons         # regenerate launcher icon from assets/i
   - Fix: `kotlin.incremental=false` in `android/gradle.properties`.
 - **INTERNET permission.** Release builds need it declared in the main `AndroidManifest.xml`.
   The template only adds it for debug and profile builds. The main manifest now declares it,
-  along with `ACCESS_COARSE_LOCATION` and `ACCESS_FINE_LOCATION`.
+  along with `ACCESS_COARSE_LOCATION` only. There's no FINE: the app requests
+  `LocationAccuracy.low`, and approximate-only keeps the Play Data safety form simple.
 - **No partly-cloudy Material icons.** Flutter's Material `Icons` has no
   `partly_cloudy_day/night`, so code 2 uses `wb_cloudy` (day) and `cloud` (night).
 

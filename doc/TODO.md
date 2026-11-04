@@ -3,11 +3,13 @@
 ## To do
 
 ### Must do
-- [ ] **About page with the Open-Meteo attribution.** Required by CC BY 4.0. Text:
-      "Weather data by Open-Meteo.com", linked to https://open-meteo.com/, with a link to the
-      licence: https://creativecommons.org/licenses/by/4.0/. Add an ⓘ action in the app bar to
-      open it. The page could also list the app version and the open-source licences
-      (`showLicensePage`).
+- [x] **About page with the Open-Meteo attribution.** ⓘ in the app bar opens `AboutScreen`
+      (attribution + CC BY 4.0 link, privacy summary, version, open-source licences). The
+      licence page also says "You must include a link next to any location Open-Meteo data are
+      displayed", so every forecast page ends with a linked "Weather data by Open-Meteo.com".
+- [x] **Privacy policy public URL.** `PRIVACY.md`, served at
+      https://github.com/ZoeBasdeki/weather/blob/main/PRIVACY.md (repo is public). Linked from
+      the About page.
 - [ ] **Set the real application ID.** It's still `com.example.weather` in
       `android/app/build.gradle.kts` (`namespace` + `applicationId`), and
       `MainActivity.kt` sits in that package path. It has to match the Android app registered
@@ -15,6 +17,18 @@
 - [ ] **Release signing.** Release builds are signed with the debug key right now (template
       default). Create a keystore and a `key.properties` file, and keep both out of version
       control.
+
+### Publishing
+- [ ] **Google Play.** Closed test → production. Data safety form: location (approximate +
+      precise) collected, sent to Open-Meteo for app functionality, not stored by the developer,
+      not shared for ads. No ads. Content rating questionnaire. Store listing screenshots.
+- [ ] **F-Droid (later).** Free store for open-source apps; fits Weather Z (no ads, no
+      tracking). Needs: public source repo with a FOSS licence (e.g. GPL-3.0 or MIT) in
+      `LICENSE`; no proprietary dependencies (adding Firebase would block it, or need a
+      separate flavour); a merge request to `fdroiddata` on GitLab with build metadata; and
+      Fastlane metadata in the repo (`fastlane/metadata/android/en-US/` with title,
+      descriptions, screenshots, changelogs). F-Droid builds the APK itself from source and
+      signs it with its own key (or uses reproducible builds to ship the developer signature).
 
 ### Firebase (when needed)
 - [ ] Run `flutterfire configure`, which generates `firebase_options.dart` and

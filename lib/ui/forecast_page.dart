@@ -4,6 +4,7 @@ import '../models/place.dart';
 import '../services/location_service.dart';
 import '../services/weather_repository.dart';
 import 'format.dart';
+import 'links.dart';
 import 'widgets/current_conditions.dart';
 import 'widgets/daily_list.dart';
 import 'widgets/hourly_strip.dart';
@@ -211,6 +212,8 @@ class _ForecastPageState extends State<ForecastPage> with AutomaticKeepAliveClie
               child: DailyList(days: f.daily),
             ),
           ],
+          const SizedBox(height: 8),
+          const OpenMeteoAttribution(),
         ],
       ),
     );

@@ -5,6 +5,7 @@ import '../services/geocoding_service.dart';
 import '../services/location_service.dart';
 import '../services/saved_places_service.dart';
 import '../services/weather_repository.dart';
+import 'about_screen.dart';
 import 'forecast_page.dart';
 import 'search_screen.dart';
 
@@ -145,6 +146,13 @@ class _HomeScreenState extends State<HomeScreen> {
             tooltip: 'Add city',
             icon: const Icon(Icons.search),
             onPressed: _openSearch,
+          ),
+          IconButton(
+            tooltip: 'About',
+            icon: const Icon(Icons.info_outline),
+            onPressed: () => Navigator.of(context).push(
+              MaterialPageRoute(builder: (_) => const AboutScreen()),
+            ),
           ),
         ],
       ),

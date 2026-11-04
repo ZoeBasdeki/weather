@@ -1,6 +1,7 @@
 # Project context (start here in a new chat)
 
 Read this file first, then [ARCHITECTURE.md](ARCHITECTURE.md) and [TODO.md](TODO.md).
+**Next session:** start with "Next steps" at the top of [TODO.md](TODO.md).
 
 ## What this is
 
@@ -44,8 +45,8 @@ Weather Z, a personal weather app for Android, written in Flutter/Dart.
 | Flutter | 3.44.4 (stable) |
 | Dart | 3.12.2 |
 | Flutter SDK | `C:\src\flutter` |
-| Phone | Samsung Galaxy A55 (SM A556B), device ID `R5CX31AZLED`, Android 16 (API 36) |
-| Emulator | `emulator-5554`, Android 16 (API 36) |
+| Phone | a real Android 16 (API 36) phone; get its device ID from `flutter devices` |
+| Emulator | `medium_phone` AVD (`flutter emulators --launch medium_phone`), Android 16 (API 36) |
 | Platforms | Android only (`flutter create --platforms=android`) |
 | App name | `Weather Z` (`android:label` in `AndroidManifest.xml` + `MaterialApp.title` in `main.dart`). The Dart package stays `weather`. |
 | Application ID | `com.weatherz.app` (final; "Z" is for Zoe). Kotlin `namespace` is still `com.example.weather`, which is fine (it is not visible to users). |
@@ -71,8 +72,8 @@ These were the latest versions on pub.dev as of 2026-10-28.
 ## Commands
 
 ```
-flutter run -d R5CX31AZLED              # debug on phone (r = hot reload, R = restart, q = quit)
-flutter run --release -d R5CX31AZLED    # release build, stays on phone, runs standalone
+flutter run -d <device-id>              # debug on phone (r = hot reload, R = restart, q = quit)
+flutter run --release -d <device-id>    # release build, stays on phone, runs standalone
 flutter analyze
 flutter test
 flutter build apk --debug               # output: build\app\outputs\flutter-apk\app-debug.apk

@@ -1,5 +1,32 @@
 # TODO & open issues
 
+## Next steps (Play Store release, agreed 2026-11-04)
+
+Status: version 1.0.1+2 is committed and pushed, with attribution, the About page, the privacy
+policy (public URL works), approximate location only, and the MIT licence. It has been used
+daily on the real phone.
+
+1. **Store graphics.** All made by Claude: a 512×512 icon (from `assets/icon/`), a 1024×500
+   feature graphic, and 2–8 phone screenshots taken from the **emulator only, never the
+   personal phone**.
+2. **Store texts.** A short description (80 characters max) and a full description (4000
+   characters max), crediting Zoe as the maker. Consider a Greek translation of the listing too.
+3. **Testers.** Nektarios is collecting the Google account emails (12 or more) of people with
+   Android phones.
+4. **Play Console** (done together in the browser):
+   - Create the app: free, "App", default language.
+   - Upload `build/app/outputs/bundle/release/app-release.aab` to a **Closed testing**
+     track. Add the testers' emails and send them the opt-in link.
+   - Testers must stay opted in for **14 days in a row**. First check whether the
+     dashboard actually shows the 12-tester rule for this account.
+   - App content forms. The answers are drafted under "Publishing" below.
+   - After the test, apply for production access, then publish.
+5. **Optional, decide first:** the commit author email (Nektarios's personal email) is
+   visible in the public git history. Options:
+   - Rewrite history to a GitHub noreply address. This needs a force-push.
+   - Leave it as it is. In either case, set a noreply address for future commits.
+6. **Later:** Greek app translation; F-Droid (see below); the features and tech items below.
+
 ## To do
 
 ### Must do
@@ -23,8 +50,7 @@
       precise) collected, sent to Open-Meteo for app functionality, not stored by the developer,
       not shared for ads. No ads. Content rating questionnaire. Store listing screenshots.
 - [ ] **F-Droid (later).** Free store for open-source apps; fits Weather Z (no ads, no
-      tracking). Needs: public source repo with a FOSS licence (e.g. GPL-3.0 or MIT) in
-      `LICENSE`; no proprietary dependencies (adding Firebase would block it, or need a
+      tracking). Needs: public source repo with a FOSS licence (done: MIT, in `LICENSE`); no proprietary dependencies (adding Firebase would block it, or need a
       separate flavour); a merge request to `fdroiddata` on GitLab with build metadata; and
       Fastlane metadata in the repo (`fastlane/metadata/android/en-US/` with title,
       descriptions, screenshots, changelogs). F-Droid builds the APK itself from source and

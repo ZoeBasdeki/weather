@@ -13,8 +13,13 @@ daily on the real phone.
 2. ~~**Store texts.**~~ Done: `title.txt`, `short_description.txt`, `full_description.txt`
    and `changelogs/3.txt` in the same folder. Still to consider: a Greek listing.
    Version is now 1.0.2+3 (it includes the snackbar fix below).
-3. **Testers.** Nektarios is collecting the Google account emails (12 or more) of people with
-   Android phones.
+3. ~~**Testers.**~~ Done: email list "Weather Z testers" (14 people) in Play Console.
+   **Status 2026-11-13:** app created in Play Console, all App content forms done, closed
+   testing release 1.0.2 (3) sent to Google for review. Target audience is ages 6+ (mixed
+   audience, Families policy applies; privacy policy updated to match). Not in Teacher Approved.
+   Next: when review passes, share the opt-in link with testers; 14 days after 12+ are opted
+   in, apply for production access. Possible update: ask before using location and offer city
+   search first (children's-privacy safety).
 4. **Play Console** (done together in the browser):
    - Create the app: free, "App", default language.
    - Upload `build/app/outputs/bundle/release/app-release.aab` to a **Closed testing**

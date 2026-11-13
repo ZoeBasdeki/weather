@@ -6,11 +6,13 @@ Status: version 1.0.1+2 is committed and pushed, with attribution, the About pag
 policy (public URL works), approximate location only, and the MIT licence. It has been used
 daily on the real phone.
 
-1. **Store graphics.** All made by Claude: a 512×512 icon (from `assets/icon/`), a 1024×500
-   feature graphic, and 2–8 phone screenshots taken from the **emulator only, never the
-   personal phone**.
-2. **Store texts.** A short description (80 characters max) and a full description (4000
-   characters max), crediting Zoe as the maker. Consider a Greek translation of the listing too.
+1. ~~**Store graphics.**~~ Done 2026-11-13, in `fastlane/metadata/android/en-US/images/`: icon
+   (512×512), feature graphic (1024×500), 5 emulator screenshots cropped to 1080×2160 (Play
+   rejects anything longer than 2:1, and the emulator's 1080×2400 is 2.22:1). Use only
+   well-known cities in screenshots, and close the "Removed …" snackbar first.
+2. ~~**Store texts.**~~ Done: `title.txt`, `short_description.txt`, `full_description.txt`
+   and `changelogs/3.txt` in the same folder. Still to consider: a Greek listing.
+   Version is now 1.0.2+3 (it includes the snackbar fix below).
 3. **Testers.** Nektarios is collecting the Google account emails (12 or more) of people with
    Android phones.
 4. **Play Console** (done together in the browser):

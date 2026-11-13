@@ -121,6 +121,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
       content: Text('Removed ${place.name}'),
+      // A snackbar with an action stays up forever by default; let this one time out.
+      persist: false,
       action: SnackBarAction(
         label: 'Undo',
         onPressed: () {

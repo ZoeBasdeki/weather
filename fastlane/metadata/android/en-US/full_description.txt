@@ -1,0 +1,19 @@
+Weather Z is a simple, free weather app made by Zoe. It shows you the weather and nothing else: no ads, no account, no tracking.
+
+What you get
+• Current conditions: temperature, "feels like", today's high and low, rain chance and amount, wind speed and direction, and humidity
+• The next 48 hours, hour by hour
+• A 14-day forecast
+• Weather for where you are, plus any cities you add. Swipe between them, or pick one from the list.
+• City search for places anywhere in the world
+• Light and dark mode
+• Works offline: the last forecast for each place is saved on your phone, so you can still check it without a connection
+
+Privacy
+Weather Z only uses your approximate location, and only while the app is open. It never asks for precise or background location. If you'd rather not share your location at all, just add cities by name.
+Your location and searches are sent only to Open-Meteo, to get the forecast. The developer has no server and never sees your data. Your saved cities and cached forecasts stay on your phone.
+
+Free and open source
+Weather Z is free, with no in-app purchases. The source code is published under the MIT licence: https://github.com/ZoeBasdeki/weather
+
+Weather data by Open-Meteo.com (https://open-meteo.com), licensed under CC BY 4.0.

@@ -9,7 +9,7 @@ Three layers. Dependencies only point downward: UI → services → models.
 
 ```
 lib/
-├── main.dart                     App entry, theme, wires services into HomeScreen
+├── main.dart                     App entry, theme + light/dark mode, wires services into HomeScreen
 ├── models/                       Plain data classes + null-safe JSON parsing (no Flutter I/O)
 │   ├── json_utils.dart           asDouble / asInt / asString / asList / asMap / at() helpers
 │   ├── forecast.dart             Forecast, CurrentWeather, HourlyWeather, DailyWeather
@@ -21,6 +21,7 @@ lib/
 │   ├── location_service.dart     geolocator wrapper: permission flow + one low-accuracy fix
 │   ├── cache_service.dart        SharedPreferences store: last raw response per place (Place.id)
 │   ├── saved_places_service.dart SharedPreferences store: saved places list + last shown page
+│   ├── theme_service.dart        SharedPreferences store: light/dark choice (system until set)
 │   └── weather_repository.dart   fetch → cache, or fall back to that place's cache on failure
 └── ui/
     ├── home_screen.dart          PageView of locations, drawer, add/remove; owns the saved list

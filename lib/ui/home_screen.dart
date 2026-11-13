@@ -17,12 +17,16 @@ class HomeScreen extends StatefulWidget {
     required this.location,
     required this.geocoding,
     required this.savedPlaces,
+    required this.onThemeModeChanged,
   });
 
   final WeatherRepository repository;
   final LocationService location;
   final GeocodingService geocoding;
   final SavedPlacesService savedPlaces;
+
+  /// Called with the mode to switch to when the light/dark button is tapped.
+  final ValueChanged<ThemeMode> onThemeModeChanged;
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -132,6 +136,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     final pages = _pages;
+    final dark = Theme.of(context).brightness == Brightness.dark;
     return Scaffold(
       appBar: AppBar(
         title: Text(_titleAt(_page)),
@@ -142,6 +147,15 @@ class _HomeScreenState extends State<HomeScreen> {
               icon: const Icon(Icons.delete_outline),
               onPressed: () => _remove(_saved[_page - 1]),
             ),
+          // Smaller than the other actions, so the title keeps its room.
+          IconButton(
+            tooltip: dark ? 'Light mode' : 'Dark mode',
+            visualDensity: VisualDensity.compact,
+            iconSize: 20,
+            icon: Icon(dark ? Icons.light_mode_outlined : Icons.dark_mode_outlined),
+            onPressed: () =>
+                widget.onThemeModeChanged(dark ? ThemeMode.light : ThemeMode.dark),
+          ),
           IconButton(
             tooltip: 'Add city',
             icon: const Icon(Icons.search),

@@ -71,6 +71,14 @@ daily on the real phone.
       Firestore?
 
 ### Features
+- [ ] **Ask before using location (children's privacy).** The app's target audience is ages 6+,
+      so Google's Families policy and children's privacy laws (COPPA, GDPR) apply. Approximate
+      location of a child sent to Open-Meteo counts as a child's personal data. On first launch,
+      show a friendly choice screen instead of requesting the permission straight away:
+      "Search for a city" first, "Use my location" second, with one line saying the location is
+      approximate and only used to get the weather. Only request `ACCESS_COARSE_LOCATION` after
+      the user taps "Use my location". Remember the choice, and let them switch later from the
+      drawer. Mention the change in the privacy policy and the release notes.
 - [ ] Reverse geocoding so the GPS location shows a place name instead of "My location"
       (Open-Meteo has no reverse geocoding; use the `geocoding` package or Nominatim).
 - [x] App launcher icon (`flutter_launcher_icons`, sources in `assets/icon/`).

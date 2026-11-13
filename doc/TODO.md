@@ -7,8 +7,8 @@ policy (public URL works), approximate location only, and the MIT licence. It ha
 daily on the real phone.
 
 1. ~~**Store graphics.**~~ Done 2026-11-13, in `fastlane/metadata/android/en-US/images/`: icon
-   (512×512), feature graphic (1024×500), 5 emulator screenshots cropped to 1080×2160 (Play
-   rejects anything longer than 2:1, and the emulator's 1080×2400 is 2.22:1). Use only
+   (512×512), feature graphic (1024×500), 5 emulator screenshots cropped to 1080×1920 (Play
+   Console's store listing only accepts exactly 9:16 or 16:9). Use only
    well-known cities in screenshots, and close the "Removed …" snackbar first.
 2. ~~**Store texts.**~~ Done: `title.txt`, `short_description.txt`, `full_description.txt`
    and `changelogs/3.txt` in the same folder. Still to consider: a Greek listing.

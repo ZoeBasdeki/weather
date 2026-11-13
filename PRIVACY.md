@@ -1,6 +1,6 @@
 # Weather Z – Privacy Policy
 
-Effective date: 4 November 2026
+Effective date: 13 November 2026
 
 Weather Z is a free weather app for Android. It has no ads, no accounts, no analytics and no
 tracking. This policy explains what data the app uses and where it goes.
@@ -46,7 +46,13 @@ data in Android settings, deletes all of it.
 
 ## Children
 
-The app is not directed at children and does not knowingly collect personal data from anyone.
+Weather Z was made by a child, and it is for everyone, children included. It works the same
+for every age: no accounts, no ads, no chat with other people, no in-app purchases, and no
+analytics or tracking. The developer receives no data from anyone, including children.
+
+If a child uses "My location", the phone's approximate location (accurate to a few kilometres)
+is sent to Open-Meteo only to get the forecast, as described above. Parents who prefer that it
+isn't can deny the location permission; the app then works with cities added by name.
 
 ## Changes
 
